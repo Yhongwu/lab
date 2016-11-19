@@ -1,0 +1,50 @@
+.main-body .details .detail-box{
+	border: 1px solid #0D507A;
+	padding:33px 15px 25px 15px;
+    margin: 25px 0 10px 0;
+    position: relative;
+}
+
+.main-body .details .detail-box img{
+	width: 148px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	float: left;
+}
+
+.main-body .details .detail-box > span{
+	background: #0D507A;
+    color: #fff;
+    position: absolute;
+    display: block;
+    top: -21px;
+    left: 10px;
+    padding: 3px 8px;
+    font-size: 17px;
+}
+
+.main-body .details .detail-box p{
+	font-size: 14px;
+	color: #333;
+	line-height: 16px;
+}
+
+.main-body .details .detail-box p a{
+	font-weight: bold;
+	color: #0D507A;
+	font-size: 15px;
+}
+
+.main-body .details .photo .detail-box div img{
+	width: 100%;
+	padding-bottom: 6px;
+}
+
+.main-body .details .photo .detail-box div{
+	margin-top: 30px;
+}
+
+.main-body .details .photo .detail-box span+div{
+	margin-top: 0;
+}

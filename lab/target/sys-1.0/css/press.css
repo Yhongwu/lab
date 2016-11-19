@@ -1,0 +1,58 @@
+.main-body{
+	padding:20px 0!important;
+}
+
+.main-body .container{
+	padding: 0 30px;
+}
+
+.main-body .hang > div{
+	border-bottom: 1px solid rgb(188,188,188);
+}
+
+.main-body .box{
+	float: left;
+	width: 50%;
+	font-size: 14px;
+	font-family: Georgia, sans-serif;
+}
+
+.main-body .odd{
+	padding:20px 40px 20px 0;
+}
+
+.main-body .even{
+	padding:20px 0 20px 40px;
+}
+
+.main-body .last,.main-body .last div{
+	border:0;
+}
+
+.main-body .hang{
+	border-bottom: 1px solid #fff;
+}
+
+.main-body .box .title{
+	font-size: 16px;
+	line-height: 25px;
+	font-weight: bold;
+}
+
+.main-body .box img{
+	margin: 8px 0;
+	width: 100%;
+}
+
+.main-body .box p{
+	line-height: 20px;
+}
+
+.main-body .box a{
+	font-size: 14px;
+	font-weight:bold;
+	color: #1366A3;
+	margin-top: 10px;
+	display: inline-block;
+	margin-bottom: 5px;
+}

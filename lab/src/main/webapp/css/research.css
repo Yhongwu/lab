@@ -1,0 +1,53 @@
+.main-body{
+	padding-bottom: 40px!important;
+}
+
+.main-body .details{
+	padding-top: 40px;
+}
+
+.details ul:first-child{
+	padding:0 30px 10px 30px;
+	border-bottom: 1px solid #b5b5b5;
+}
+
+.details ul:first-child li{
+	list-style-type: square;
+	line-height: 30px;
+}
+
+.details ul:first-child li a{
+	color: #000;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.details ul:first-child li a:hover{
+	text-decoration: underline;
+}
+
+.details > div p:first-child{
+	font-size: 20px;
+}
+
+.details > div {
+	margin-top: 40px;
+	padding:0 15px;
+}
+
+.details #material{
+	margin-top: 30px;
+}
+
+.details > div > img{
+	width: 100%;
+	margin-top: 20px;
+	padding:0 40px;
+}
+
+.details > div .description{
+	font-size: 14px;
+	line-height: 20px;
+	margin-top: 10px;
+	padding:0 40px;
+}

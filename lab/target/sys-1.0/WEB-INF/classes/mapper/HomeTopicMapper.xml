@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sys.mapper.HomeTopicMapper" >
+  <resultMap id="BaseResultMap" type="com.sys.entity.HomeTopic" >
+    <id column="h_id" property="hId" jdbcType="INTEGER" />
+    <result column="h_url" property="hUrl" jdbcType="VARCHAR" />
+    <result column="h_status" property="hStatus" jdbcType="INTEGER" />
+    <result column="h_number" property="hNumber" jdbcType="INTEGER" />
+    <result column="h_title" property="hTitle" jdbcType="VARCHAR" />
+    <result column="h_content" property="hContent" jdbcType="VARCHAR" />
+    <result column="h_summary" property="hSummary" jdbcType="VARCHAR" />
+    <result column="h_time" property="hTime" jdbcType="VARCHAR" />
+    <result column="h_content2" property="hContent2" jdbcType="VARCHAR" />
+    <result column="h_vurl" property="hVurl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    h_id, h_url, h_status, h_number, h_title, h_content, h_summary, h_time, h_content2, 
+    h_vurl
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sys.entity.HomeTopicExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from home_topic
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+  		limit ${page.offset}, ${page.limit}
+  	</if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from home_topic
+    where h_id = #{hId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from home_topic
+    where h_id = #{hId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sys.entity.HomeTopicExample" >
+    delete from home_topic
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sys.entity.HomeTopic" >
+    insert into home_topic (h_id, h_url, h_status, 
+      h_number, h_title, h_content, 
+      h_summary, h_time, h_content2, 
+      h_vurl)
+    values (#{hId,jdbcType=INTEGER}, #{hUrl,jdbcType=VARCHAR}, #{hStatus,jdbcType=INTEGER}, 
+      #{hNumber,jdbcType=INTEGER}, #{hTitle,jdbcType=VARCHAR}, #{hContent,jdbcType=VARCHAR}, 
+      #{hSummary,jdbcType=VARCHAR}, #{hTime,jdbcType=VARCHAR}, #{hContent2,jdbcType=VARCHAR}, 
+      #{hVurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sys.entity.HomeTopic" >
+    insert into home_topic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hId != null" >
+        h_id,
+      </if>
+      <if test="hUrl != null" >
+        h_url,
+      </if>
+      <if test="hStatus != null" >
+        h_status,
+      </if>
+      <if test="hNumber != null" >
+        h_number,
+      </if>
+      <if test="hTitle != null" >
+        h_title,
+      </if>
+      <if test="hContent != null" >
+        h_content,
+      </if>
+      <if test="hSummary != null" >
+        h_summary,
+      </if>
+      <if test="hTime != null" >
+        h_time,
+      </if>
+      <if test="hContent2 != null" >
+        h_content2,
+      </if>
+      <if test="hVurl != null" >
+        h_vurl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hId != null" >
+        #{hId,jdbcType=INTEGER},
+      </if>
+      <if test="hUrl != null" >
+        #{hUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="hStatus != null" >
+        #{hStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hNumber != null" >
+        #{hNumber,jdbcType=INTEGER},
+      </if>
+      <if test="hTitle != null" >
+        #{hTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="hContent != null" >
+        #{hContent,jdbcType=VARCHAR},
+      </if>
+      <if test="hSummary != null" >
+        #{hSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="hTime != null" >
+        #{hTime,jdbcType=VARCHAR},
+      </if>
+      <if test="hContent2 != null" >
+        #{hContent2,jdbcType=VARCHAR},
+      </if>
+      <if test="hVurl != null" >
+        #{hVurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sys.entity.HomeTopicExample" resultType="java.lang.Integer" >
+    select count(*) from home_topic
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update home_topic
+    <set >
+      <if test="record.hId != null" >
+        h_id = #{record.hId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hUrl != null" >
+        h_url = #{record.hUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hStatus != null" >
+        h_status = #{record.hStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.hNumber != null" >
+        h_number = #{record.hNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.hTitle != null" >
+        h_title = #{record.hTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hContent != null" >
+        h_content = #{record.hContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hSummary != null" >
+        h_summary = #{record.hSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hTime != null" >
+        h_time = #{record.hTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hContent2 != null" >
+        h_content2 = #{record.hContent2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hVurl != null" >
+        h_vurl = #{record.hVurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update home_topic
+    set h_id = #{record.hId,jdbcType=INTEGER},
+      h_url = #{record.hUrl,jdbcType=VARCHAR},
+      h_status = #{record.hStatus,jdbcType=INTEGER},
+      h_number = #{record.hNumber,jdbcType=INTEGER},
+      h_title = #{record.hTitle,jdbcType=VARCHAR},
+      h_content = #{record.hContent,jdbcType=VARCHAR},
+      h_summary = #{record.hSummary,jdbcType=VARCHAR},
+      h_time = #{record.hTime,jdbcType=VARCHAR},
+      h_content2 = #{record.hContent2,jdbcType=VARCHAR},
+      h_vurl = #{record.hVurl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sys.entity.HomeTopic" >
+    update home_topic
+    <set >
+      <if test="hUrl != null" >
+        h_url = #{hUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="hStatus != null" >
+        h_status = #{hStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hNumber != null" >
+        h_number = #{hNumber,jdbcType=INTEGER},
+      </if>
+      <if test="hTitle != null" >
+        h_title = #{hTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="hContent != null" >
+        h_content = #{hContent,jdbcType=VARCHAR},
+      </if>
+      <if test="hSummary != null" >
+        h_summary = #{hSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="hTime != null" >
+        h_time = #{hTime,jdbcType=VARCHAR},
+      </if>
+      <if test="hContent2 != null" >
+        h_content2 = #{hContent2,jdbcType=VARCHAR},
+      </if>
+      <if test="hVurl != null" >
+        h_vurl = #{hVurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sys.entity.HomeTopic" >
+    update home_topic
+    set h_url = #{hUrl,jdbcType=VARCHAR},
+      h_status = #{hStatus,jdbcType=INTEGER},
+      h_number = #{hNumber,jdbcType=INTEGER},
+      h_title = #{hTitle,jdbcType=VARCHAR},
+      h_content = #{hContent,jdbcType=VARCHAR},
+      h_summary = #{hSummary,jdbcType=VARCHAR},
+      h_time = #{hTime,jdbcType=VARCHAR},
+      h_content2 = #{hContent2,jdbcType=VARCHAR},
+      h_vurl = #{hVurl,jdbcType=VARCHAR}
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+    <select id="search" resultMap="BaseResultMap" parameterType="string">
+  	 SELECT * FROM home_topic WHERE h_content2 LIKE '%${_parameter}%' or h_summary LIKE '%${_parameter}%' or h_title LIKE '%${_parameter}%';
+  </select>
+</mapper>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sys.mapper.JoinsMapper" >
+  <resultMap id="BaseResultMap" type="com.sys.entity.Joins" >
+    <id column="j_id" property="jId" jdbcType="INTEGER" />
+    <result column="j_com" property="jCom" jdbcType="VARCHAR" />
+    <result column="j_content" property="jContent" jdbcType="VARCHAR" />
+    <result column="j_time" property="jTime" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="j_po" property="jPo" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    j_id, j_com, j_content, j_time, status, j_po
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sys.entity.JoinsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from joins
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+  		limit ${page.offset}, ${page.limit}
+  	</if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from joins
+    where j_id = #{jId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from joins
+    where j_id = #{jId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sys.entity.JoinsExample" >
+    delete from joins
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sys.entity.Joins" >
+    insert into joins (j_id, j_com, j_content, 
+      j_time, status, j_po)
+    values (#{jId,jdbcType=INTEGER}, #{jCom,jdbcType=VARCHAR}, #{jContent,jdbcType=VARCHAR}, 
+      #{jTime,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{jPo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sys.entity.Joins" >
+    insert into joins
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="jId != null" >
+        j_id,
+      </if>
+      <if test="jCom != null" >
+        j_com,
+      </if>
+      <if test="jContent != null" >
+        j_content,
+      </if>
+      <if test="jTime != null" >
+        j_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="jPo != null" >
+        j_po,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="jId != null" >
+        #{jId,jdbcType=INTEGER},
+      </if>
+      <if test="jCom != null" >
+        #{jCom,jdbcType=VARCHAR},
+      </if>
+      <if test="jContent != null" >
+        #{jContent,jdbcType=VARCHAR},
+      </if>
+      <if test="jTime != null" >
+        #{jTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="jPo != null" >
+        #{jPo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sys.entity.JoinsExample" resultType="java.lang.Integer" >
+    select count(*) from joins
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update joins
+    <set >
+      <if test="record.jId != null" >
+        j_id = #{record.jId,jdbcType=INTEGER},
+      </if>
+      <if test="record.jCom != null" >
+        j_com = #{record.jCom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jContent != null" >
+        j_content = #{record.jContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jTime != null" >
+        j_time = #{record.jTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.jPo != null" >
+        j_po = #{record.jPo,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update joins
+    set j_id = #{record.jId,jdbcType=INTEGER},
+      j_com = #{record.jCom,jdbcType=VARCHAR},
+      j_content = #{record.jContent,jdbcType=VARCHAR},
+      j_time = #{record.jTime,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      j_po = #{record.jPo,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sys.entity.Joins" >
+    update joins
+    <set >
+      <if test="jCom != null" >
+        j_com = #{jCom,jdbcType=VARCHAR},
+      </if>
+      <if test="jContent != null" >
+        j_content = #{jContent,jdbcType=VARCHAR},
+      </if>
+      <if test="jTime != null" >
+        j_time = #{jTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="jPo != null" >
+        j_po = #{jPo,jdbcType=INTEGER},
+      </if>
+    </set>
+    where j_id = #{jId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sys.entity.Joins" >
+    update joins
+    set j_com = #{jCom,jdbcType=VARCHAR},
+      j_content = #{jContent,jdbcType=VARCHAR},
+      j_time = #{jTime,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      j_po = #{jPo,jdbcType=INTEGER}
+    where j_id = #{jId,jdbcType=INTEGER}
+  </update>
+   <select id="search" resultMap="BaseResultMap" parameterType="string">
+   	 SELECT * FROM joins WHERE j_content LIKE '%${_parameter}%' or j_com LIKE '%${_parameter}%';
+   </select>
+  
+</mapper>

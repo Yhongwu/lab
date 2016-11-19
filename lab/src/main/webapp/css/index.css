@@ -1,0 +1,235 @@
+/*logo*/
+.frame{
+    padding-bottom: 35px
+}
+
+.main-body{
+    padding-top: 40px;
+    padding-bottom: 40px!important;
+}
+
+.main-body .container > div{
+    padding:0 17px;
+}
+
+/*轮播图*/
+.slider{
+    padding:18px 20px;
+    border-radius: 8px;
+    background-color: rgba(216,216,216,.6);
+    
+}
+
+.slider .a{
+    position: relative;
+    height:0;
+    opacity: 0;
+}
+
+.slider-box{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+}
+
+.slider .a div.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.slider-box .slider-left{
+    width: 64%;
+    padding-right: 15px;
+    float: left;
+    height:210px;
+}
+
+.slider-box .slider-right{
+    width: 36%;
+    float: left;
+    overflow: hidden;
+}
+
+.slider-box .slider-left p{
+    font-family: Georgia, sans-serif;
+    color: #111;
+    text-shadow: 1px 1px 0 #ccc;
+}
+
+.slider-box .slider-left .title{
+    margin-top: 10px;
+    line-height: 40px;
+    font-size: 28px;
+}
+
+.slider-box .slider-left .brief{
+    line-height: 28px;
+    font-size: 17px;
+}
+
+.slider-box .slider-left a{
+    line-height: 28px;
+    font-size: 17px;
+    color: #1366A3;
+    font-family: Georgia, sans-serif;
+}
+
+.slider-box .slider-right img{
+    height:210px;
+}
+
+.slider .choose{
+    padding-top: 7px;
+    float: right;
+}
+
+.slider .choose a{
+    float: left;
+    display: block;
+    margin-right: 7px;
+    position: relative;
+}
+
+.slider .choose a img{
+    height:30px;
+    opacity: 0.6;
+    filter:alpha(opacity=60); 
+    -moz-opacity:0.6; 
+}
+
+.slider .choose a:hover img,.slider .choose a.on img{
+    opacity: 1;
+}
+
+.slider .choose a.last{
+    margin-right: 0;
+}
+
+/*视频和团队介绍*/
+.main-body .welcome-image{
+    float: left;
+    width: 491px;
+    margin-top: 10px;
+}
+
+.main-body .welcome-image img{
+    width: 100%;
+}
+
+.main-body .introduce{
+    float: right;
+    width: 50%;
+}
+
+.main-body .introduce .welcome{
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+}
+
+.main-body .introduce .welcome p{
+    font-size: 29px;
+    line-height: 140%;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(188,188,188);
+    font-family: Georgia, sans-serif;
+    text-shadow: 1px 1px 0px #fff;
+}
+
+.main-body .introduce .welcome span,.main-body .introduce .team span{
+    color: #1366A3;
+}
+
+.main-body .introduce .welcome-box div{
+    font-size: 16px;
+    line-height: 20px;
+    color: #333;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding-top: 5px;
+}
+
+.main-body .introduce .welcome-box div span:first-child{
+    margin: 10px 10px 0 0;
+    font-size: 30px;
+    display: inline-block;
+    color: #9E0E87;
+    float: left;
+    font-weight: bold;
+    font-family: Georgia, sans-serif;
+    height: 30px;
+}
+
+.main-body .introduce .welcome-box div span:last-child{
+    padding-top: -10px;
+}
+
+/*相关链接*/
+.link-box{
+    position: relative;
+}
+
+.news{
+    height: 245px;
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+.news .links div{
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.news .links p{
+    display: inline-block;
+    font-size: 30px;
+    line-height: 140%;
+    font-family: Georgia, sans-serif;
+    text-shadow: 1px 1px 0px #fff;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(188,188,188);
+    padding-right: 20px;
+}
+
+.news .links p span{
+    color: #1366A3
+}
+
+.news .news-list{
+    width: 2100px;
+}
+
+.news .news-list>div.news-box{
+    width: 300px;
+    height: 180px;
+    margin: 0 15px 20px 15px;
+    background-color: #ccc;
+    float: left;
+    position: relative;
+}
+
+.news .news-list>div.news-box:first-child{
+    margin: 0;
+}
+
+.news .news-list>div.news-box img{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+
+.news-btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 100;
+    top: 58%;
+    cursor: pointer;
+}
+
+.news-btn img{
+    width: 30px;
+    height: 30px;
+    display: block;
+}

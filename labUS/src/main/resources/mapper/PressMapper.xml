@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sys.mapper.PressMapper" >
+  <resultMap id="BaseResultMap" type="com.sys.entity.Press" >
+    <id column="p_id" property="pId" jdbcType="INTEGER" />
+    <result column="p_title" property="pTitle" jdbcType="VARCHAR" />
+    <result column="p_url" property="pUrl" jdbcType="VARCHAR" />
+    <result column="p_time" property="pTime" jdbcType="VARCHAR" />
+    <result column="p_summary" property="pSummary" jdbcType="VARCHAR" />
+    <result column="p_content2" property="pContent2" jdbcType="VARCHAR" />
+    <result column="p_vurl" property="pVurl" jdbcType="VARCHAR" />
+    <result column="p_status" property="pStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sys.entity.Press" extends="BaseResultMap" >
+    <result column="p_content" property="pContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    p_id, p_title, p_url, p_time, p_summary, p_content2, p_vurl, p_status
+  </sql>
+  <sql id="Blob_Column_List" >
+    p_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.sys.entity.PressExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from press
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+  		limit ${page.offset}, ${page.limit}
+  	</if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sys.entity.PressExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from press
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+  		limit ${page.offset}, ${page.limit}
+  	</if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from press
+    where p_id = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from press
+    where p_id = #{pId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sys.entity.PressExample" >
+    delete from press
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sys.entity.Press" >
+    insert into press (p_id, p_title, p_url, 
+      p_time, p_summary, p_content2, 
+      p_vurl, p_status, p_content
+      )
+    values (#{pId,jdbcType=INTEGER}, #{pTitle,jdbcType=VARCHAR}, #{pUrl,jdbcType=VARCHAR}, 
+      #{pTime,jdbcType=VARCHAR}, #{pSummary,jdbcType=VARCHAR}, #{pContent2,jdbcType=VARCHAR}, 
+      #{pVurl,jdbcType=VARCHAR}, #{pStatus,jdbcType=INTEGER}, #{pContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sys.entity.Press" >
+    insert into press
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="pTitle != null" >
+        p_title,
+      </if>
+      <if test="pUrl != null" >
+        p_url,
+      </if>
+      <if test="pTime != null" >
+        p_time,
+      </if>
+      <if test="pSummary != null" >
+        p_summary,
+      </if>
+      <if test="pContent2 != null" >
+        p_content2,
+      </if>
+      <if test="pVurl != null" >
+        p_vurl,
+      </if>
+      <if test="pStatus != null" >
+        p_status,
+      </if>
+      <if test="pContent != null" >
+        p_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pTitle != null" >
+        #{pTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="pUrl != null" >
+        #{pUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="pTime != null" >
+        #{pTime,jdbcType=VARCHAR},
+      </if>
+      <if test="pSummary != null" >
+        #{pSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="pContent2 != null" >
+        #{pContent2,jdbcType=VARCHAR},
+      </if>
+      <if test="pVurl != null" >
+        #{pVurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pStatus != null" >
+        #{pStatus,jdbcType=INTEGER},
+      </if>
+      <if test="pContent != null" >
+        #{pContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sys.entity.PressExample" resultType="java.lang.Integer" >
+    select count(*) from press
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update press
+    <set >
+      <if test="record.pId != null" >
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pTitle != null" >
+        p_title = #{record.pTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pUrl != null" >
+        p_url = #{record.pUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pTime != null" >
+        p_time = #{record.pTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pSummary != null" >
+        p_summary = #{record.pSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pContent2 != null" >
+        p_content2 = #{record.pContent2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pVurl != null" >
+        p_vurl = #{record.pVurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pStatus != null" >
+        p_status = #{record.pStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.pContent != null" >
+        p_content = #{record.pContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update press
+    set p_id = #{record.pId,jdbcType=INTEGER},
+      p_title = #{record.pTitle,jdbcType=VARCHAR},
+      p_url = #{record.pUrl,jdbcType=VARCHAR},
+      p_time = #{record.pTime,jdbcType=VARCHAR},
+      p_summary = #{record.pSummary,jdbcType=VARCHAR},
+      p_content2 = #{record.pContent2,jdbcType=VARCHAR},
+      p_vurl = #{record.pVurl,jdbcType=VARCHAR},
+      p_status = #{record.pStatus,jdbcType=INTEGER},
+      p_content = #{record.pContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update press
+    set p_id = #{record.pId,jdbcType=INTEGER},
+      p_title = #{record.pTitle,jdbcType=VARCHAR},
+      p_url = #{record.pUrl,jdbcType=VARCHAR},
+      p_time = #{record.pTime,jdbcType=VARCHAR},
+      p_summary = #{record.pSummary,jdbcType=VARCHAR},
+      p_content2 = #{record.pContent2,jdbcType=VARCHAR},
+      p_vurl = #{record.pVurl,jdbcType=VARCHAR},
+      p_status = #{record.pStatus,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sys.entity.Press" >
+    update press
+    <set >
+      <if test="pTitle != null" >
+        p_title = #{pTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="pUrl != null" >
+        p_url = #{pUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="pTime != null" >
+        p_time = #{pTime,jdbcType=VARCHAR},
+      </if>
+      <if test="pSummary != null" >
+        p_summary = #{pSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="pContent2 != null" >
+        p_content2 = #{pContent2,jdbcType=VARCHAR},
+      </if>
+      <if test="pVurl != null" >
+        p_vurl = #{pVurl,jdbcType=VARCHAR},
+      </if>
+      <if test="pStatus != null" >
+        p_status = #{pStatus,jdbcType=INTEGER},
+      </if>
+      <if test="pContent != null" >
+        p_content = #{pContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sys.entity.Press" >
+    update press
+    set p_title = #{pTitle,jdbcType=VARCHAR},
+      p_url = #{pUrl,jdbcType=VARCHAR},
+      p_time = #{pTime,jdbcType=VARCHAR},
+      p_summary = #{pSummary,jdbcType=VARCHAR},
+      p_content2 = #{pContent2,jdbcType=VARCHAR},
+      p_vurl = #{pVurl,jdbcType=VARCHAR},
+      p_status = #{pStatus,jdbcType=INTEGER},
+      p_content = #{pContent,jdbcType=LONGVARCHAR}
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sys.entity.Press" >
+    update press
+    set p_title = #{pTitle,jdbcType=VARCHAR},
+      p_url = #{pUrl,jdbcType=VARCHAR},
+      p_time = #{pTime,jdbcType=VARCHAR},
+      p_summary = #{pSummary,jdbcType=VARCHAR},
+      p_content2 = #{pContent2,jdbcType=VARCHAR},
+      p_vurl = #{pVurl,jdbcType=VARCHAR},
+      p_status = #{pStatus,jdbcType=INTEGER}
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+   <select id="search" resultMap="ResultMapWithBLOBs" parameterType="string">
+  	SELECT * FROM press WHERE p_status = 1 and (p_summary LIKE '%${_parameter}%' or p_title LIKE '%${_parameter}%'or p_content2 LIKE '%${_parameter}%');
+  </select>
+</mapper>

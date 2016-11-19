@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sys.mapper.PublicationMapper" >
+  <resultMap id="BaseResultMap" type="com.sys.entity.Publication" >
+    <id column="p_id" property="pId" jdbcType="INTEGER" />
+    <result column="p_year" property="pYear" jdbcType="VARCHAR" />
+    <result column="p_time" property="pTime" jdbcType="VARCHAR" />
+    <result column="u_time" property="uTime" jdbcType="VARCHAR" />
+    <result column="p_content" property="pContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    p_id, p_year, p_time, u_time, p_content
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sys.entity.PublicationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from publication
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="page != null">
+  		limit ${page.offset}, ${page.limit}
+  	</if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from publication
+    where p_id = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from publication
+    where p_id = #{pId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sys.entity.PublicationExample" >
+    delete from publication
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sys.entity.Publication" >
+    insert into publication (p_id, p_year, p_time, 
+      u_time, p_content)
+    values (#{pId,jdbcType=INTEGER}, #{pYear,jdbcType=VARCHAR}, #{pTime,jdbcType=VARCHAR}, 
+      #{uTime,jdbcType=VARCHAR}, #{pContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sys.entity.Publication" >
+    insert into publication
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="pYear != null" >
+        p_year,
+      </if>
+      <if test="pTime != null" >
+        p_time,
+      </if>
+      <if test="uTime != null" >
+        u_time,
+      </if>
+      <if test="pContent != null" >
+        p_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pYear != null" >
+        #{pYear,jdbcType=VARCHAR},
+      </if>
+      <if test="pTime != null" >
+        #{pTime,jdbcType=VARCHAR},
+      </if>
+      <if test="uTime != null" >
+        #{uTime,jdbcType=VARCHAR},
+      </if>
+      <if test="pContent != null" >
+        #{pContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sys.entity.PublicationExample" resultType="java.lang.Integer" >
+    select count(*) from publication
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update publication
+    <set >
+      <if test="record.pId != null" >
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pYear != null" >
+        p_year = #{record.pYear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pTime != null" >
+        p_time = #{record.pTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uTime != null" >
+        u_time = #{record.uTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pContent != null" >
+        p_content = #{record.pContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update publication
+    set p_id = #{record.pId,jdbcType=INTEGER},
+      p_year = #{record.pYear,jdbcType=VARCHAR},
+      p_time = #{record.pTime,jdbcType=VARCHAR},
+      u_time = #{record.uTime,jdbcType=VARCHAR},
+      p_content = #{record.pContent,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sys.entity.Publication" >
+    update publication
+    <set >
+      <if test="pYear != null" >
+        p_year = #{pYear,jdbcType=VARCHAR},
+      </if>
+      <if test="pTime != null" >
+        p_time = #{pTime,jdbcType=VARCHAR},
+      </if>
+      <if test="uTime != null" >
+        u_time = #{uTime,jdbcType=VARCHAR},
+      </if>
+      <if test="pContent != null" >
+        p_content = #{pContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sys.entity.Publication" >
+    update publication
+    set p_year = #{pYear,jdbcType=VARCHAR},
+      p_time = #{pTime,jdbcType=VARCHAR},
+      u_time = #{uTime,jdbcType=VARCHAR},
+      p_content = #{pContent,jdbcType=VARCHAR}
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="countByYear" resultType="String">
+    select distinct p_year
+    from publication
+  </select>
+  
+  <select id="search" resultMap="BaseResultMap" parameterType="string">
+  	SELECT * FROM publication WHERE p_content LIKE '%${_parameter}%';
+  </select>
+  
+</mapper>

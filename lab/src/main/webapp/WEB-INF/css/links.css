@@ -1,0 +1,89 @@
+.main-body{
+	padding-bottom: 40px;
+	padding-top: 64px;
+}
+
+.main-body > .container{
+	padding:0 20px;
+}
+
+.main-body .box{
+	border:2px solid #0D507A;
+	padding: 20px 30px;
+	position: relative;
+}
+
+.main-body .box > span{
+	background-color: #0D507A;
+	color: #fff;
+	position: absolute;
+    display: block;
+    top: -24px;
+    left: 30px;
+    padding: 5px 10px;
+    font-size: 17px;
+    font-family: Georgia, sans-serif;
+}
+
+.main-body .left,.main-body .right{
+	float: left;
+	width: 50%;
+}
+
+.main-body .left div,.main-body .right div{
+	font-size: 14px;
+	color: #333;
+}
+
+.main-body .left{
+	padding-right: 15px;
+}
+
+.main-body .right{
+	padding-left: 50px;
+}
+
+.main-body .box .head-title{
+	font-size: 18px;
+	padding-bottom: 20px;
+	font-family: 微软雅黑;
+	font-style: italic;
+	color: #0D507A;
+}
+
+.main-body .box .head-title{
+	text-decoration: underline;
+}
+
+.main-body .left .group div{
+	padding-bottom: 16px;
+}
+
+.main-body .left .group div{
+	padding-bottom: 10px;
+}
+
+.main-body .left .group div:last-child{
+	padding-bottom: 5px;
+}
+
+.main-body .left .group div a{
+	font-size: 16px;
+	padding-bottom: 8px;
+	display: inline-block;
+}
+
+.main-body .left .group div a:hover{
+	text-decoration: underline;
+}
+
+.main-body .box a{
+	font-size: 14px;
+	color: #333;
+	line-height: 25px;
+}
+
+.main-body .box .network a:hover{
+	color: #0D507A;
+	font-weight: bold;
+}

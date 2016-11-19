@@ -1,0 +1,163 @@
+.member-box ul li > a{
+	position: relative;
+}
+
+.member-box ul li .child-box{
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid rgb(188,188,188);
+	padding-bottom: 15px;
+	padding-top: 6px;
+	display: none;
+}
+
+.member-box ul li .child-box img{
+	width: 30px;
+	margin-right: 5px;
+}
+
+.member-box ul li .child-box a{
+	background-image: none!important;
+	border-bottom:0!important;
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	color: #000!important;
+	padding-bottom: 0!important;
+}
+
+.member-box ul li .child-box a:hover{
+	text-decoration: underline!important;
+}
+
+.main-body .details{
+	border-bottom: 1px solid #fff;
+	margin-bottom: 20px;
+}
+
+.main-body .details > div{
+	border-bottom: 1px solid rgb(188,188,188);
+	padding-bottom: 20px;
+}
+
+.main-body .details .detail-box img{
+	width: 90px;
+	margin-right: 30px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	float: left;
+}
+
+.main-body .details h1,.member-detail h1{
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 8px;
+    border-left: 6px solid #0D507A;
+}
+
+.main-body #professor h1{
+	margin-top: 20px;
+}
+
+.main-body .details h1 span{
+	display: block;
+	text-shadow: 1px 1px 0px #fff;
+	font-family: Georgia, sans-serif;
+	font-weight: normal;
+}
+
+.main-body .details .detail-box p{
+	font-size: 14px;
+	color: #333;
+	line-height: 18px;
+	padding-right: 10px;
+}
+
+.main-body .details .detail-box p a{
+	font-weight: bold;
+	color: #0D507A;
+	font-size: 15px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.main-body .details .photo .detail-box div img{
+	width: 100%;
+	padding-bottom: 6px;
+}
+
+.main-body .details .photo .detail-box div{
+	margin-top: 30px;
+}
+
+#professor .detail-padding,#teacher .detail-padding{
+	width: 100%;
+} 
+
+#full .detail-padding,#postdoctor .detail-padding,#master .detail-padding,#phd .detail-padding{
+	width: 50%;
+	float: left;
+}
+
+.main-body .details .detail-padding {
+    padding-top: 25px!important;
+}
+
+.here .child-box{
+	display: block!important;
+}
+
+/*成员详情*/
+.member-detail{
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.member-detail .main-detail{
+	padding-top: 20px;
+}
+
+.member-detail .main-detail img{
+	float: left;
+	width: 180px;
+	margin-right: 20px;
+}
+
+.member-detail .main-detail p{
+	font-weight: bold;
+	line-height: 40px;
+	margin-bottom: 20px;
+}
+
+.member-detail .main-detail table{
+	line-height: 30px;
+}
+
+.member-detail .main-detail table,.member-detail .main-detail p{
+    font-size: 15px;
+}
+
+.member-detail .main-detail table tr td:first-child{
+	font-weight: bold;
+	width: 140px;
+	vertical-align: top;
+}
+
+.member-detail .box{
+	padding-left: 16px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.member-detail .box h2{
+	font-size: 22px;
+	line-height: 40px;
+}
+
+.member-detail .box h2 span:hover{
+	text-decoration: underline;
+}
+
+.member-detail .box ul{
+	font-size: 15px;
+	list-style-type: disc;
+	padding-left: 20px;
+	line-height: 30px;
+}

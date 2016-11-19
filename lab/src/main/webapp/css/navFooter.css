@@ -1,0 +1,253 @@
+/*导航栏*/
+.nav{
+    background-color: rgba(211,211,211.5);
+    background-color: rgb(211,211,211);
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-blank{
+    width: 100%;
+    height:47px;
+}
+
+.nav > .padding{
+    padding:0 20px;
+    width: 1060px;
+    margin: 0 auto;
+}
+
+.nav ul.nav-box{
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    float: left;
+}
+
+.nav ul.nav-box .li{
+    float: left;
+    width: 120px;
+    text-align: left;
+}
+
+.nav ul.nav-box .li a:hover{
+    color: #000;
+}
+
+.nav ul.nav-box .li a{
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 35px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 12px;
+    text-decoration: none;
+    color: rgb(85,85,85);
+}
+
+.nav ul.nav-box .li a span{
+    display: block;
+}
+
+.nav .search{
+    float: right;
+    width: 156px;
+    padding: 5px 0;
+}
+
+.nav .search form{
+    margin: 5px 0;
+}
+
+.nav .search input{
+    font-size: 12px;
+    line-height: 23px;
+    border-bottom-left-radius: 8px 8px;
+    border-top-left-radius:8px 8px;
+    border:1px solid #999;
+    border-right: 0;
+    padding:0 4px;
+    width: 120px;
+    float:left;
+    color: #999;
+    background-color:#f1f2f2;
+}
+
+.nav .search button{
+    background-color:#f1f2f2;
+    border:1px solid #999;
+    border-left: 0;
+    border-bottom-right-radius: 8px 8px;
+    border-top-right-radius:8px 8px;
+    cursor: pointer;
+    padding-right: 3px;
+    height: 24.5px;
+    float: left;
+}
+
+.nav .search button img{
+    vertical-align: center;
+}
+
+.nav .nav-down a img{
+   margin-left: 5px;
+   width: 8px;
+}
+
+.nav .nav-bg{
+    background-color: #f1f2f2;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 120px;
+    height:35px;
+    border-radius: 10px;
+    top: 6px;
+    left:0;
+}
+
+.nav ul.nav-box li.nav-down{
+    position: relative;
+}
+
+.nav ul.nav-box li.nav-down .downbox{
+    position: absolute;
+    width: 205px;
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    visibility: hidden;
+}
+
+.nav ul.nav-box li.nav-down ul{
+    position: absolute;
+    width: 194px;
+    padding-bottom:14px;
+    background-color: rgb(225,225,225);
+    border-bottom-right-radius: 10px 10px;
+    border-bottom-left-radius: 10px 10px;
+    box-shadow: 2px 2px 6px #666;
+    margin:0 auto;
+    left:3px;
+}
+
+.nav ul.nav-box li.nav-down ul li{
+    border-bottom: 1px solid #fff;
+}
+
+.nav ul.nav-box li.nav-down ul li .circle{
+    width: 10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: rgb(179,179,179);
+    float: left;
+    margin: 9px 12px 0 12px;
+}
+
+.nav ul.nav-box li.nav-down ul li a{
+    height: auto;
+    line-height: 31px;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Georgia, sans-serif;
+    margin-left: 0;
+    border-bottom: 1px solid rgb(188,188,188);
+    color: rgb(102,102,102)!important;
+}
+
+.nav ul.nav-box li.nav-down ul li:hover,.nav ul.nav-box li.nav-down ul li.current-down{
+    background-color: #f2f2f2;
+}
+
+.nav ul.nav-box li.nav-down ul li:hover a,.nav ul.nav-box li.nav-down ul li.current-down a{
+    color: #000!important;
+}
+
+.nav ul.nav-box li.nav-down ul li:hover .circle,.nav ul.nav-box li.nav-down ul li.current-down .circle{
+    border:2px solid #000;
+    background-color: #f2f2f2;
+}
+
+.nav ul.nav-box li.li > div{
+    width: 100%;
+    margin: 0 3px;
+    padding: 6px 0;
+}
+
+.nav .language{
+    display: block;
+    position: absolute;
+    right:15px;
+    top: 15px;
+}
+
+.nav .language a,.nav .language span{
+    font-size: 12px;
+    color: #000;
+}
+
+.nav .language span i{
+    color:#4f4fb3;
+}
+
+.nav .language a:hover{
+    font-style: oblique;
+    font-weight: bold;
+    color:#4f4fb3;
+}
+
+.nav-content{
+    height: 47px;
+    width: 100%;
+}
+
+/*logo*/
+.frame{
+    background: url(../images/show-bg.jpg);
+}
+
+.logo-box{
+    padding:15px 0;
+}
+
+.logo-box img{
+    float: left;
+    padding-right: 5px;
+    padding-left: 20px;
+}
+
+.logo-box span{
+    line-height: 74px;
+    font-size: 25px;
+    font-family: Verdana;
+    text-shadow: 1px 1px 0 #ccc;
+}
+
+/*中间主要内容*/
+.main-body{
+    background: #E1E1E1 url(../images/body-bg.png) 0 0 repeat-x;
+    padding-bottom: 25px;
+}
+
+/*页脚*/
+.footer{
+    background-color: #fff;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.footer p{
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+    font-family: Georgia, sans-serif;
+    font-size: 12px;
+}

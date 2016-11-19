@@ -1,0 +1,26 @@
+.container{
+	width: 982px;
+	margin:0 auto;
+}
+
+.clear{
+	clear:both;
+}
+
+body{
+    min-width: 982px;
+}
+
+.border-box{
+	box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+.disnone{
+	display: none;
+}
+
+input,button{
+	outline: none;
+}

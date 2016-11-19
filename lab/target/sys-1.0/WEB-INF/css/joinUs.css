@@ -1,0 +1,112 @@
+.main-body{
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+.details{
+	padding-top: 33px!important;
+}
+
+.details .contact{
+	position: relative;
+	border:1px solid #1366A3;
+	padding:20px 10px;
+}
+
+.details .contact > span{
+	background: #0D507A;
+    color: #fff;
+    position: absolute;
+    display: block;
+    top: -23px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 17px;
+}
+
+.details .contact div{
+	font-size: 14px;
+	font-family: Georgia, sans-serif;
+}
+
+.details .contact div label{
+	width: 50%;
+	float: left;
+	display: block;
+	line-height: 25px;
+}
+
+.details .contact div .address{
+	width: 100%;
+}
+
+.details .contact div label span{
+	font-weight: bold;
+	color: #0D507A;
+	padding-right: 5px;
+}
+
+.details #teacher,.details #post-doc span{
+	font-family: Georgia, sans-serif!important;
+	color: #333!important;
+	font-size: 14px!important;
+	line-height: 22px!important;
+}
+
+.details #teacher{
+	padding-top: 30px;
+	border-bottom: 1px dashed #b5b5b5;
+}
+
+.details #post-doc{
+	padding-top: 20px;
+}
+
+.details .box p:first-child{
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 35px;
+}
+
+.details .title{
+	font-style: italic;
+	line-height: 50px;
+	font-size: 22px;
+	text-decoration: underline;
+	padding-bottom: 20px;
+}
+
+.details .title + p{
+	text-indent:25px;
+	margin-bottom: 20px;
+}
+
+.text-indent{
+	text-indent:25px;
+}
+
+.details #teacher > div,.details #post-doc > div{
+	padding-bottom: 20px;
+}
+
+.details .box p{
+	line-height: 30px;
+}
+
+.details div ol{
+	list-style-type: decimal;
+    counter-reset: sectioncounter;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 40px;
+}
+
+.details .box p.ali,.details .box p.recieve{
+	margin: 7px 0;
+	line-height: 22px;
+}
+
+.details .box a{
+	color: #0070C0;
+	text-decoration: none;
+}

@@ -1,0 +1,83 @@
+.main-body{
+	padding-top: 25px;
+}
+
+.main-body .member{
+	width: 300px;
+	font-family: Georgia, sans-serif;
+	padding-right: 40px;
+	float: left;
+	padding-bottom: 10px;
+}
+
+.main-body .details,.member-detail{
+	width: 69.2%;
+	font-family: Georgia, sans-serif;
+	float: right;
+}
+
+.main-body .member .member-box{
+	padding: 15px 0 15px 20px;
+    margin-bottom: 5px;
+}
+
+.main-body .member .member-box:nth-last-child(1){
+	padding-bottom: 30px;
+}
+
+.main-body .member .member-box p{
+	text-shadow: 1px 1px 0px #fff;
+	line-height: 30px;
+	font-size: 22px;
+	padding-bottom: 5px;
+    margin-bottom:10px;
+}
+
+.main-body .member .member-box p span{
+	color: #1366A3;
+	font-weight: normal;
+	font-size:22px;
+}
+
+.main-body .member .member-box span{
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+
+.main-body .member .member-box ul{
+	width:205px;
+}
+
+.main-body .member .member-box ul li,.main-body .member .member-box ul li.team div{
+	border-bottom: 1px solid #fff;
+}
+
+.main-body .member .member-box ul li.team{
+	border-bottom: 0;
+}
+
+.main-body .member .member-box ul li.team ul{
+	display: none;
+}
+
+.main-body .member .member-box ul li a{
+	display: block;
+	font-size: 17px;
+	color: #666;
+	background: url(../images/arrows.png) 5px 12px no-repeat;
+	padding: 9px 20px 9px 20px;
+	overflow: hidden;
+	line-height: 18px;
+	border-bottom: 1px solid rgb(188,188,188);
+	text-decoration: none;
+}
+
+.main-body .member .member-box ul li a:hover,.main-body .member .member-box ul li a.here{
+	background: url(../images/drop-bullet.png) 5px -270px no-repeat;
+    color: #000;
+}
+
+.main-body .details .detail-padding{
+	padding-top: 15px;
+}

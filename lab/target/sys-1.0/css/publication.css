@@ -1,0 +1,69 @@
+.details{
+	font-family: Georgia, sans-serif;
+	color: #333;
+}
+
+.details div:first-child{
+	border-bottom: 1px solid #fff;
+}
+
+.details div:first-child div{
+	padding-bottom: 9px;
+	border-bottom: 1px solid #9a9a9a;
+}
+
+.details div:first-child p{
+	font-size: 12px;
+	line-height: 35px;
+}
+
+.details div:first-child p:first-child{
+	margin-top: 15px;
+	font-size: 14px;
+}
+
+.details div:first-child p:first-child a{
+	color: #1366A3;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.details .time{
+	padding-left: 40px;
+	padding-bottom: 20px;
+}
+
+.details .time p{
+	padding-bottom: 20px;
+	padding-top: 15px;
+}
+
+.details .time p span{
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: underline;
+}
+
+ol{
+	list-style-type: decimal;
+	counter-reset:sectioncounter;
+	font-size: 14px;
+	line-height: 18px;
+}  
+
+ol li{
+	padding-bottom: 20px;
+}
+
+ol li a{
+	color: #1366A3;
+	font-weight: bold;
+}
+
+ol li a:hover{
+	text-decoration: underline;
+}
+
+ol li span{
+	font-weight: bold;
+}

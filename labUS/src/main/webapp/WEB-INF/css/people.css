@@ -1,0 +1,66 @@
+.main-body .details .detail-box{
+	border: 1px solid #0D507A;
+	padding:33px 15px 25px 15px;
+    margin: 25px 0 40px 0;
+    position: relative;
+}
+
+.main-body .details .detail-box:last-child{
+	margin-bottom:0;
+}
+
+.main-body .details .detail-box img{
+	width: 148px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	margin-top: 0;
+	float: left;
+}
+
+.main-body .details .detail-box > span{
+	background: #0D507A;
+    color: #fff;
+    position: absolute;
+    display: block;
+    top: -21px;
+    left: 10px;
+    padding: 3px 8px;
+    font-size: 17px;
+}
+
+.main-body .details .detail-box p{
+	margin-top:10px;
+}
+
+.main-body .details .detail-box p.MsoNormal:first-child{
+	margin-top:0;
+}
+
+.main-body .details .detail-box p span{
+	font-size: 14px!important;
+	color: #333!important;
+	line-height: 16px!important;
+}
+
+.main-body .details .detail-box p a{
+	font-weight: bold;
+	color: #0D507A;
+	font-size: 15px;
+}
+
+.main-body .details .photo p{
+	line-height:18px;
+}
+
+.main-body .details .photo .detail-box div img{
+	width: 100%;
+	padding-bottom: 6px;
+}
+
+.main-body .details .photo .detail-box div{
+	margin-top: 30px;
+}
+
+.main-body .details .photo .detail-box span+div{
+	margin-top: 0;
+}
