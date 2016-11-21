@@ -9,6 +9,8 @@ public class HomeShow {
 
     private String scontent;
 
+    private String moreContent;
+
     public Integer getSid() {
         return sid;
     }
@@ -39,5 +41,13 @@ public class HomeShow {
 
     public void setScontent(String scontent) {
         this.scontent = scontent == null ? null : scontent.trim();
+    }
+
+    public String getMoreContent() {
+        return moreContent;
+    }
+
+    public void setMoreContent(String moreContent) {
+        this.moreContent = moreContent == null ? null : moreContent.trim();
     }
 }

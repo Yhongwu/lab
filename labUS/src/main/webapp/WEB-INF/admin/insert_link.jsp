@@ -11,6 +11,8 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>
     <script type=/"text/javascript" src="<%=request.getContextPath()%>/Eidtor/nicEdit.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/editor/kindeditor-min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/editor/lang/zh_CN.js"></script>
     <script type="text/javascript">
     function ceshi() { 
     	alert("asd");

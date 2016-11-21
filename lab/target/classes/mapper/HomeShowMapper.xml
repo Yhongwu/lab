@@ -7,6 +7,9 @@
     <result column="stitle" property="stitle" jdbcType="VARCHAR" />
     <result column="scontent" property="scontent" jdbcType="VARCHAR" />
   </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.sys.entity.HomeShow" extends="BaseResultMap" >
+    <result column="more_content" property="moreContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -68,6 +71,25 @@
   <sql id="Base_Column_List" >
     sid, surl, stitle, scontent
   </sql>
+  <sql id="Blob_Column_List" >
+    more_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.sys.entity.HomeShowExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from home_show
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sys.entity.HomeShowExample" >
     select
     <if test="distinct" >
@@ -82,9 +104,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from home_show
     where sid = #{sid,jdbcType=INTEGER}
   </select>
@@ -100,9 +124,9 @@
   </delete>
   <insert id="insert" parameterType="com.sys.entity.HomeShow" >
     insert into home_show (sid, surl, stitle, 
-      scontent)
+      scontent, more_content)
     values (#{sid,jdbcType=INTEGER}, #{surl,jdbcType=VARCHAR}, #{stitle,jdbcType=VARCHAR}, 
-      #{scontent,jdbcType=VARCHAR})
+      #{scontent,jdbcType=VARCHAR}, #{moreContent,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sys.entity.HomeShow" >
     insert into home_show
@@ -119,6 +143,9 @@
       <if test="scontent != null" >
         scontent,
       </if>
+      <if test="moreContent != null" >
+        more_content,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sid != null" >
@@ -132,6 +159,9 @@
       </if>
       <if test="scontent != null" >
         #{scontent,jdbcType=VARCHAR},
+      </if>
+      <if test="moreContent != null" >
+        #{moreContent,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -156,7 +186,21 @@
       <if test="record.scontent != null" >
         scontent = #{record.scontent,jdbcType=VARCHAR},
       </if>
+      <if test="record.moreContent != null" >
+        more_content = #{record.moreContent,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update home_show
+    set sid = #{record.sid,jdbcType=INTEGER},
+      surl = #{record.surl,jdbcType=VARCHAR},
+      stitle = #{record.stitle,jdbcType=VARCHAR},
+      scontent = #{record.scontent,jdbcType=VARCHAR},
+      more_content = #{record.moreContent,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,7 +227,18 @@
       <if test="scontent != null" >
         scontent = #{scontent,jdbcType=VARCHAR},
       </if>
+      <if test="moreContent != null" >
+        more_content = #{moreContent,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where sid = #{sid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sys.entity.HomeShow" >
+    update home_show
+    set surl = #{surl,jdbcType=VARCHAR},
+      stitle = #{stitle,jdbcType=VARCHAR},
+      scontent = #{scontent,jdbcType=VARCHAR},
+      more_content = #{moreContent,jdbcType=LONGVARCHAR}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sys.entity.HomeShow" >

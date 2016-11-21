@@ -71,6 +71,10 @@
                                 <td>内容：<br>
                                 ${homeShow.scontent}</td>
                             </tr>
+                            <tr>
+                                <td>更多内容：<br>
+                                ${homeShow.moreContent}</td>
+                            </tr>
                             <!-- <tr>
                                 <td>
                                     <input id="update" class="btn btn-primary btn6 mr10" value="修改" type="button">

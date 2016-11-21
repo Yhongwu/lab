@@ -13,6 +13,8 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/Eidtor/nicEdit.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/editor/kindeditor-min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/editor/lang/zh_CN.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/editor/kindeditor-min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/editor/lang/zh_CN.js"></script>
     <script type="text/javascript">
     function ceshi(obj) { 
     	if(validateImage(obj)){

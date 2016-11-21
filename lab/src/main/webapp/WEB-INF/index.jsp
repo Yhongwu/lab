@@ -186,12 +186,12 @@
 
 			<div class="clear">
 			</div>
+			<div>${homeShow.moreContent}</div>
 		</div>
 
 		<div class="clear">
 		</div>
 	</div>
-
 	<%@include file="front/foot.jsp" %>
 	<script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.min.js"></script>
 	<script type="text/javascript" src="<%=request.getContextPath() %>/js/index.js"></script>

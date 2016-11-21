@@ -18,7 +18,7 @@ public class HomeShowServiceImp implements HomeShowService{
 	public HomeShow findShow(){
 		HomeShowExample example = new HomeShowExample();
 		example.createCriteria();
-		List<HomeShow> shows = homeShowMapper.selectByExample(example);
+		List<HomeShow> shows = homeShowMapper.selectByExampleWithBLOBs(example);
 		if(shows.size()>0){
 			return shows.get(0);
 		}
@@ -35,7 +35,7 @@ public class HomeShowServiceImp implements HomeShowService{
 
 	@Override
 	public int updateShow(HomeShow homeShow) {
-		int i = homeShowMapper.updateByPrimaryKey(homeShow);
+		int i = homeShowMapper.updateByPrimaryKeyWithBLOBs(homeShow);
 		return i;
 	}
 	

@@ -60,9 +60,23 @@
 		        }
 	}
     
-    bkLib.onDomLoaded(function() {
-        new nicEditor({ fullPanel: true }).panelInstance('hContent');
-    });
+    /* bkLib.onDomLoaded(function() {
+        new nicEditor({ fullPanel: true }).panelInstance('scontent');
+    }); */
+    
+    KindEditor.ready(function(k){  
+        editor = k.create('#moreContent',{  
+        	uploadJson : '<%=request.getContextPath()%>/kindeditor/upload.do',  
+            fileManagerJson : '<%=request.getContextPath()%>/kindeditor/fileManager.do',  
+            allowFileManager : true,  
+            allowImageUpload : true,   
+	        autoHeightMode : true,  
+	        width : "700px",  
+	        height : "300px",  
+	        afterCreate : function() {this.loadPlugin('autoheight');},  
+	            afterBlur : function(){ this.sync(); }  //Kindeditor下获取文本框信息   
+        });  
+    });  
     
     function checkform(){
     	if(document.getElementById("stitle").value.length<=0){
@@ -165,6 +179,10 @@
                             <tr>
                                 <th>内容：</th>
                                 <td><textarea name="scontent" class="common-textarea" id="scontent" cols="30" style="width: 98%;" rows="10">${homeShow.scontent}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th>更多内容：</th>
+                                <td><textarea name="moreContent" class="common-textarea" id="moreContent" cols="30" style="width: 98%;" rows="10">${homeShow.moreContent}</textarea></td>
                             </tr>
                             <tr>
                                 <th></th>

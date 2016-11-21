@@ -11,6 +11,8 @@
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/Eidtor/nicEdit.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/editor/kindeditor-min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/editor/lang/zh_CN.js"></script>
     <script type="text/javascript">
     function ceshi(obj) { 
     	if(validateImage(obj)){
@@ -58,9 +60,19 @@
 		        }
 	}
     
-    bkLib.onDomLoaded(function() {
-        new nicEditor({ fullPanel: true }).panelInstance('hContent');
-    });
+    KindEditor.ready(function(k){  
+        editor = k.create('#moreContent',{  
+        	uploadJson : '<%=request.getContextPath()%>/kindeditor/upload.do',  
+            fileManagerJson : '<%=request.getContextPath()%>/kindeditor/fileManager.do',  
+            allowFileManager : true,  
+            allowImageUpload : true,   
+	        autoHeightMode : true,  
+	        width : "700px",  
+	        height : "300px",  
+	        afterCreate : function() {this.loadPlugin('autoheight');},  
+	            afterBlur : function(){ this.sync(); }  //Kindeditor下获取文本框信息   
+        });  
+    }); 
     
     function checkform(){
     	if(document.getElementById("stitle").value.length<=0){
@@ -163,6 +175,10 @@
                             <tr>
                                 <th>内容：</th>
                                 <td><textarea name="scontent" class="common-textarea" id="scontent" cols="30" style="width: 98%;" rows="10">${homeShow.scontent}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th>更多内容：</th>
+                                <td><textarea name="moreContent" class="common-textarea" id="moreContent" cols="30" style="width: 98%;" rows="10">${homeShow.moreContent}</textarea></td>
                             </tr>
                             <tr>
                                 <th></th>

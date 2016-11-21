@@ -186,6 +186,7 @@
 
 			<div class="clear">
 			</div>
+			<div>${homeShow.moreContent}</div>
 		</div>
 
 		<div class="clear">
